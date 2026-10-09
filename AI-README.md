@@ -11,10 +11,14 @@ DeepSeek Harness（dsh）在中国大陆 Linux 环境下的安装排障知识库
 
 | 文件 | 给谁读 | 内容 | 何时读 |
 |---|---|---|---|
+| `AGENTS.md` | harness 自动加载 | 桥接层：agent 客户端（Claude Code/Codex/Cursor 等）自动读取，指向本文件 | 无需主动读，环境自动注入 |
 | `AI-README.md`（本文件） | AI | 入口 + 知识浓缩 + 本约定声明 | 首先读 |
 | `README.md` | 人类 | 8 个坑的完整叙事（定位过程 + 解法 + 速查表） | 需要完整推理过程时 |
 | `scripts/dsh_doctor.sh` | AI 执行 | 8 项一键自检（Clash/代理/NODE_OPTIONS/pnpm/端口） | 排障第一步，直接 `bash` 运行 |
 | `snippets/clash-dsh.bash` | AI 执行/复制 | clashgo/clashoff/clashstop/dshstop 函数集 | 用户需要代理或端口管理命令时 |
+| `scripts/ai-first-check.sh` | AI/CI 执行 | 本约定合规自检（入口存在性、结构、死链，10 项检查） | 修改文档后、或接入其他仓库时 |
+| `.github/workflows/ai-first-check.yml` | CI 自动执行 | push/PR 时自动跑上述自检 | 无需手动操作 |
+| `mcp/server.js` | MCP 客户端 | 零依赖 MCP server：知识浓缩/文件地图作为资源 + `search_fix` 工具 | 客户端配置后按标准协议拉取 |
 | `LICENSE` | — | MIT | — |
 
 ## 知识浓缩（AI 速查，详细推理见 README.md）
@@ -38,6 +42,8 @@ EADDRINUSE 127.0.0.1:3080   → 旧 dsh web 实例占端口    → ss -ltnp | gr
 ## AI-first 文档约定（一次早期的公开尝试）
 
 **约定内容**：技术仓库在根目录提供 `AI-README.md`，作为 AI 代理的优先入口；其中包含文件地图（谁读什么、何时读）与知识浓缩（症状→命令的直接映射，无需阅读叙事即可行动）；`README.md` 开头声明本约定并指向 AI-README.md。
+
+**落地机制（约定靠工具传播，而非口头提醒）**：本仓库提供三层机制保证入口"第一时间被读到"——① `AGENTS.md` 桥接（支持该标准的 agent 客户端自动加载，无需用户提示）；② `scripts/ai-first-check.sh` + GitHub Action（CI 强制自检入口结构，防止退化）；③ `mcp/server.js`（把知识浓缩暴露为标准 MCP 资源，任何 MCP 客户端可按协议拉取）。其他仓库可复制这三个文件直接接入。
 
 **为什么**：AI 代理正越来越多地代替人类检索文档并执行任务。人类需要叙事与推导，AI 需要结构化映射与可直接执行的命令。分开写，两类读者各取所需，检索成本都更低。
 
