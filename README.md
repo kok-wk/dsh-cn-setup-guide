@@ -1,14 +1,19 @@
+<!-- ACRP:START -->
+> **🤖 AI 读者请先读 [`AI-README.md`](AI-README.md)**
+>
+> 本仓库遵循 **AI Context Relay Protocol (ACRP)** —— AI 代理请优先读
+> [`AI-README.md`](AI-README.md)（文件地图 + 知识浓缩），无需通读本 README 即可行动。
+>
+> 本块与同目录的 `AGENTS.md`、`AI-README.md` 均由
+> [`@kok-wk/acrp-mcp`](https://github.com/kok-wk/AI-Context-Relay-Protocol) 自动生成。
+> 想让你自己的项目也自动获得这种结构：`npm install -g @kok-wk/acrp-mcp`（详见 AI-README.md 末节）。
+<!-- ACRP:END -->
+
 # DeepSeek Harness (dsh) 国内安装与排障实战指南
 
 ![ACRP](https://img.shields.io/badge/ACRP-ai--context--relay--protocol-2ea44f)
 
-**关于本仓库**：本仓库是 dsh (DeepSeek Harness) 在中国大陆 Linux 环境下的 8 坑排障实战指南；同时是 **AI Context Relay Protocol (ACRP)** 的**源头仓库**——ACRP 的最初想法即诞生于此（2026-10-09，kok-wk）。本仓库的 `AGENTS.md` 与 `AI-README.md` 已由 [`@kok-wk/acrp-mcp`](https://github.com/kok-wk/AI-Context-Relay-Protocol) 自动生成并填入本项目内容，作为 ACRP 协议的最小参考实现。
-
-> **🤖 For AI Agents / AI 读者请先看这里**
-> 本仓库遵循 **AI Context Relay Protocol (ACRP)**（旧称 AI-first 文档约定）—— AI 代理请优先阅读 [`AI-README.md`](AI-README.md)（入口 + 文件地图 + 知识浓缩，无需通读本篇即可行动）。
-> 该协议要求仓库打两个必打标签：`ai-context-relay-protocol`（主）与 `ai-docs`（别名）——这是 GitHub 上识别采纳仓库、量化传播效果、追溯传递链的唯一标识。
-> 据维护者所知，这是 ACRP 最早的公开尝试（2026-10-09，kok-wk）。详见 [AI-README.md 协议节](AI-README.md#ai-context-relay-protocol-acrp)。
-> 协议另有三层落地机制：`AGENTS.md`（agent 客户端自动加载 + 协议摘要）、`scripts/ai-first-check.sh` + CI（合规自检）、`mcp/server.js`（MCP 标准协议访问）。
+**关于本仓库**：本仓库是 dsh (DeepSeek Harness) 在中国大陆 Linux 环境下的 8 坑排障实战指南；同时是 **AI Context Relay Protocol (ACRP)** 的**源头仓库**——据维护者所知，这是 ACRP 最早的公开尝试（2026-10-09，kok-wk），协议的最初想法即诞生于此。本仓库的 `AGENTS.md`、`AI-README.md` 与顶部 AI 提示块，均已由 [`@kok-wk/acrp-mcp`](https://github.com/kok-wk/AI-Context-Relay-Protocol) 自动生成，作为 ACRP 协议的最小参考实现。
 
 > 在中国大陆 Linux 环境下安装 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（`npx @deepseek-ai/dsh web`）的完整踩坑记录。
 > 一次安装踩了 **7 个坑**：代理未启动、IDE 扩展注入破坏 npm、代理节点上游失联、网络重试缺失、pnpm 代理失效、端口冲突、系统代理需要手动设置——本文给出每一个的定位过程与解法。
