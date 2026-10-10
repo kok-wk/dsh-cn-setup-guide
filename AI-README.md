@@ -46,7 +46,8 @@ EADDRINUSE 127.0.0.1:3080   → 旧 dsh web 实例占端口    → ss -ltnp | gr
 **协议核心标识（不可替换）**：
 - 协议名：**AI Context Relay Protocol**，简称 **ACRP**（旧称 AI-first 文档约定）
 - 必打 GitHub 标签：主 **`ai-context-relay-protocol`** + 别名 **`ai-docs`**
-- 源头：https://github.com/kok-wk/dsh-cn-setup-guide
+- 规范仓库：https://github.com/kok-wk/acrp
+- 本仓库：ACRP 参考实现（dsh 国内 Linux 安装排障实战）
 
 **落地机制（约定靠工具传播，而非口头提醒）**：本仓库提供三层机制保证入口"第一时间被读到"——① `AGENTS.md` 桥接（支持该标准的 agent 客户端自动加载，无需用户提示）；② `scripts/ai-first-check.sh` + GitHub Action（CI 强制自检入口结构，防止退化）；③ `mcp/server.js`（把知识浓缩暴露为标准 MCP 资源，任何 MCP 客户端可按协议拉取）。其他仓库可复制这三个文件直接接入。
 
