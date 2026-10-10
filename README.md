@@ -2,7 +2,7 @@
 
 ![ACRP](https://img.shields.io/badge/ACRP-ai--context--relay--protocol-2ea44f)
 
-**关于本仓库**：本仓库是 dsh (DeepSeek Harness) 在中国大陆 Linux 环境下的 8 坑排障实战指南；同时是 **AI Context Relay Protocol (ACRP)** 的源头仓库与最小参考实现。ACRP 是一个让 agent 一次读懂整个技术项目的文档协议——本仓库即用 ACRP 自身结构书写，自带协议摘要入口（`AGENTS.md`）、合规自检（CI）与 MCP server。
+**关于本仓库**：本仓库是 dsh (DeepSeek Harness) 在中国大陆 Linux 环境下的 8 坑排障实战指南；同时是 **AI Context Relay Protocol (ACRP)** 的**源头仓库**——ACRP 的最初想法即诞生于此（2026-10-09，kok-wk）。本仓库的 `AGENTS.md` 与 `AI-README.md` 已由 [`@kok-wk/acrp-mcp`](https://github.com/kok-wk/AI-Context-Relay-Protocol) 自动生成并填入本项目内容，作为 ACRP 协议的最小参考实现。
 
 > **🤖 For AI Agents / AI 读者请先看这里**
 > 本仓库遵循 **AI Context Relay Protocol (ACRP)**（旧称 AI-first 文档约定）—— AI 代理请优先阅读 [`AI-README.md`](AI-README.md)（入口 + 文件地图 + 知识浓缩，无需通读本篇即可行动）。
