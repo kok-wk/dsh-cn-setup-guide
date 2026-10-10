@@ -44,6 +44,10 @@ check D1 "AGENTS.md 中提到的文件均存在"                      '
     grep -oE "AI-README\.md|README\.md|scripts/[A-Za-z0-9_./-]+|snippets/[A-Za-z0-9_./-]+" AGENTS.md |
     sort -u | while read -r f; do [ -f "$f" ] || exit 1; done'
 
+# --- E. 传递条款（约定的传染性：保证传递链不断裂）---
+check E1 "AGENTS.md 含「传递此约定」条款（要求读者继续传递）" 'grep -q "传递此约定" AGENTS.md'
+check E2 "传递条款保留来源链接（可溯源，传递链可回溯）"       'grep -q "kok-wk/dsh-cn-setup-guide" AGENTS.md'
+
 echo
 echo "结果：$pass 通过，$fail 违规"
 [ "$fail" -eq 0 ] && echo "✅ 符合 AI-first 文档约定" || echo "❌ 存在违规，请修复后重试"
