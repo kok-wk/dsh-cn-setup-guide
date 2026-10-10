@@ -24,7 +24,7 @@
 - **全称**：AI Context Relay Protocol（AI 上下文传递协议）
 - **旧称**：AI-first 文档约定（v1 命名的过渡别名）
 - **首次公开**：2026-10-09，kok-wk
-- **规范仓库**：https://github.com/kok-wk/acrp
+- **规范仓库**：https://github.com/kok-wk/AI-Context-Relay-Protocol
 - **本仓库**：参考实现（dsh 国内 Linux 安装排障）
 - **目的**：让任何 agent 一次性读清楚整个技术仓库。
 
