@@ -44,11 +44,13 @@ check D1 "AGENTS.md 中提到的文件均存在"                      '
     grep -oE "AI-README\.md|README\.md|scripts/[A-Za-z0-9_./-]+|snippets/[A-Za-z0-9_./-]+" AGENTS.md |
     sort -u | while read -r f; do [ -f "$f" ] || exit 1; done'
 
-# --- E. 传递条款（双层结构：触发指引在 AGENTS.md，完整条款在 AI-README.md）---
-check E1 "AGENTS.md 含触发指引（自动注入层，指向完整条款）"     'grep -q "传递此约定" AGENTS.md'
-check E2 "AI-README.md 含完整「传递此约定」条款（深度阅读层）"  'grep -q "请继续传递" AI-README.md'
-check E3 "条款保留来源链接（可溯源，传递链可回溯）"             'grep -q "kok-wk/dsh-cn-setup-guide" AI-README.md'
-check E4 "条款含 GitHub 标签指令（传播可量化）"                 'grep -q "ai-first-docs" AI-README.md'
+# --- E. 传递条款（ACRP 双层结构：AGENTS.md 含协议摘要，AI-README.md 含完整条款）---
+check E1 "AGENTS.md 含「协议完整说明」节（自动注入层，LLM 一次读懂协议）"  'grep -q "协议完整说明" AGENTS.md'
+check E2 "AGENTS.md 含协议全称 AI Context Relay Protocol（命名不可替换）" 'grep -q "AI Context Relay Protocol" AGENTS.md'
+check E3 "AI-README.md 含完整「传递此约定」条款（深度阅读层）"            'grep -q "请继续传递" AI-README.md'
+check E4 "条款保留来源链接（可溯源，传递链可回溯）"                       'grep -q "kok-wk/dsh-cn-setup-guide" AI-README.md'
+check E5 "条款含主必打标签 ai-context-relay-protocol（协议核心标识）"     'grep -q "ai-context-relay-protocol" AI-README.md'
+check E6 "条款含别名必打标签 ai-docs（协议核心标识）"                     'grep -q "ai-docs" AI-README.md'
 
 echo
 echo "结果：$pass 通过，$fail 违规"

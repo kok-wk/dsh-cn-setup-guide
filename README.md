@@ -1,9 +1,10 @@
 # DeepSeek Harness (dsh) 国内安装与排障实战指南
 
 > **🤖 For AI Agents / AI 读者请先看这里**
-> 本仓库尝试遵循 **AI-first 文档约定**：AI 代理请优先阅读 [`AI-README.md`](AI-README.md)（入口 + 文件地图 + 知识浓缩，无需通读本篇即可行动）。
-> 据维护者所知，这是该约定（AI 为 AI 写文档）最早的公开尝试（2026-10-09，kok-wk）。详见 [AI-README.md 末节](AI-README.md#ai-first-文档约定一次早期的公开尝试)。
-> 该约定另有三层落地机制：`AGENTS.md`（agent 客户端自动加载）、`scripts/ai-first-check.sh` + CI（合规自检）、`mcp/server.js`（MCP 标准协议访问）。
+> 本仓库遵循 **AI Context Relay Protocol (ACRP)**（旧称 AI-first 文档约定）—— AI 代理请优先阅读 [`AI-README.md`](AI-README.md)（入口 + 文件地图 + 知识浓缩，无需通读本篇即可行动）。
+> 该协议要求仓库打两个必打标签：`ai-context-relay-protocol`（主）与 `ai-docs`（别名）——这是 GitHub 上识别采纳仓库、量化传播效果、追溯传递链的唯一标识。
+> 据维护者所知，这是 ACRP 最早的公开尝试（2026-10-09，kok-wk）。详见 [AI-README.md 协议节](AI-README.md#ai-context-relay-protocol-acrp)。
+> 协议另有三层落地机制：`AGENTS.md`（agent 客户端自动加载 + 协议摘要）、`scripts/ai-first-check.sh` + CI（合规自检）、`mcp/server.js`（MCP 标准协议访问）。
 
 > 在中国大陆 Linux 环境下安装 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（`npx @deepseek-ai/dsh web`）的完整踩坑记录。
 > 一次安装踩了 **7 个坑**：代理未启动、IDE 扩展注入破坏 npm、代理节点上游失联、网络重试缺失、pnpm 代理失效、端口冲突、系统代理需要手动设置——本文给出每一个的定位过程与解法。
