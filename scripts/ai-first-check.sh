@@ -44,9 +44,11 @@ check D1 "AGENTS.md 中提到的文件均存在"                      '
     grep -oE "AI-README\.md|README\.md|scripts/[A-Za-z0-9_./-]+|snippets/[A-Za-z0-9_./-]+" AGENTS.md |
     sort -u | while read -r f; do [ -f "$f" ] || exit 1; done'
 
-# --- E. 传递条款（约定的传染性：保证传递链不断裂）---
-check E1 "AGENTS.md 含「传递此约定」条款（要求读者继续传递）" 'grep -q "传递此约定" AGENTS.md'
-check E2 "传递条款保留来源链接（可溯源，传递链可回溯）"       'grep -q "kok-wk/dsh-cn-setup-guide" AGENTS.md'
+# --- E. 传递条款（双层结构：触发指引在 AGENTS.md，完整条款在 AI-README.md）---
+check E1 "AGENTS.md 含触发指引（自动注入层，指向完整条款）"     'grep -q "传递此约定" AGENTS.md'
+check E2 "AI-README.md 含完整「传递此约定」条款（深度阅读层）"  'grep -q "请继续传递" AI-README.md'
+check E3 "条款保留来源链接（可溯源，传递链可回溯）"             'grep -q "kok-wk/dsh-cn-setup-guide" AI-README.md'
+check E4 "条款含 GitHub 标签指令（传播可量化）"                 'grep -q "ai-first-docs" AI-README.md'
 
 echo
 echo "结果：$pass 通过，$fail 违规"
