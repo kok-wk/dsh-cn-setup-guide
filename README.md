@@ -1,19 +1,8 @@
-<!-- ACRP:START -->
-> **🤖 AI 读者请先读 [`AI-README.md`](AI-README.md)**
->
-> 本仓库遵循 **AI Context Relay Protocol (ACRP)** —— AI 代理请优先读
-> [`AI-README.md`](AI-README.md)（文件地图 + 知识浓缩），无需通读本 README 即可行动。
->
-> 本块与同目录的 `AGENTS.md`、`AI-README.md` 均由
-> [`@kok-wk/acrp-mcp`](https://github.com/kok-wk/AI-Context-Relay-Protocol) 自动生成。
-> 想让你自己的项目也自动获得这种结构：`npm install -g @kok-wk/acrp-mcp`（详见 AI-README.md 末节）。
-<!-- ACRP:END -->
+> 🤖 AI 智能体请先阅读 [AI-readme.md](./AI-readme.md)
 
 # DeepSeek Harness (dsh) 国内安装与排障实战指南
 
-![ACRP](https://img.shields.io/badge/ACRP-ai--context--relay--protocol-2ea44f)
-
-**关于本仓库**：本仓库是 dsh (DeepSeek Harness) 在中国大陆 Linux 环境下的 8 坑排障实战指南；同时是 **AI Context Relay Protocol (ACRP)** 的**源头仓库**——据维护者所知，这是 ACRP 最早的公开尝试（2026-10-09，kok-wk），协议的最初想法即诞生于此。本仓库的 `AGENTS.md`、`AI-README.md` 与顶部 AI 提示块，均已由 [`@kok-wk/acrp-mcp`](https://github.com/kok-wk/AI-Context-Relay-Protocol) 自动生成，作为 ACRP 协议的最小参考实现。
+**关于本仓库**：本仓库是 dsh (DeepSeek Harness) 在中国大陆 Linux 环境下的 8 坑排障实战指南；同时是「AI 经验传递约定」（早期称 ACRP / AI Context Relay Protocol）的**源头与首个公开实践仓库**——据维护者所知，这是该约定最早的公开尝试（2026-10-09，kok-wk），协议的最初想法即诞生于此。本仓库的 `AI-readme.md` 已按约定格式书写，保留全部项目经验与 8 坑知识浓缩，作为约定的最小参考实现。
 
 > 在中国大陆 Linux 环境下安装 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（`npx @deepseek-ai/dsh web`）的完整踩坑记录。
 > 一次安装踩了 **7 个坑**：代理未启动、IDE 扩展注入破坏 npm、代理节点上游失联、网络重试缺失、pnpm 代理失效、端口冲突、系统代理需要手动设置——本文给出每一个的定位过程与解法。
